@@ -82,26 +82,15 @@ async def add_words(message: types.Message):
 
 @dp.message_handler(content_types=[types.ContentType.DOCUMENT])
 async def doc_handler(message: types.Message):
-    #json_file = await bot.get_file (message.document.open())
-    #f = open(message.document.text, "r")
-
-    #print(f.read(30))
-
-    #json_file = await bot.get_file (message.document.file_id.file_path)
-    #print(json_file)
-
-    
     await message.document.download()
 
 
     
     file_info = await bot.get_file (message.document.file_id)
-    print(file_info["file_path"])
     file_path = file_info["file_path"]
     with open(file_path, "r") as file:
         words = [word.rstrip() for word in file]
     for word in words:
-        print(word)
         try:
             scr = langid.classify(word)[0]
             if scr == "en" or scr == "de" or scr == "uk":
@@ -246,7 +235,6 @@ async def message_work(message: types.Message):
     if writting_type == "translate":
         try:
             scr = langid.classify(message.text)[0]
-            print(scr)
             if scr == "en" or scr == "de" or scr == "uk" or scr == "it":
                 lang = "en"
                 if spell(message.text) == message.text:
