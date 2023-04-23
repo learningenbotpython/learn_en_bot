@@ -2,7 +2,6 @@ from aiogram import Bot, Dispatcher, executor, types
 from googletrans import Translator
 import langid
 import sqlite3
-import io
 from random import choice, randint
 from autocorrect import Speller
 import os
