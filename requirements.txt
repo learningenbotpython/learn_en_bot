@@ -1,0 +1,6 @@
+aiogram
+googletrans==3.1.0a0
+langid
+sqlite3
+random
+autocorrect
