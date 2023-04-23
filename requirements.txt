@@ -4,3 +4,4 @@ langid
 sqlite3
 random
 autocorrect
+os
