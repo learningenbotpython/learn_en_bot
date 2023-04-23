@@ -188,11 +188,9 @@ async def learning(message: types.Message):
                 for i in range(3):
                     if buttons[i] == "":
                         incorr = choice(words_for_test)
-                        if incorr not in buttons:
-                            buttons[i] = translator.translate(incorr, src=src, dest=dest).text
-                        else:
+                        while incorr in buttons:
                             incorr = choice(words_for_test)
-                            buttons[i] = translator.translate(incorr, src=src, dest=dest).text
+                        buttons[i] = translator.translate(incorr, src=src, dest=dest).text
                 keyboard.add(*buttons)
                 await message.answer(str(test_word), reply_markup=keyboard)
             else:
@@ -375,9 +373,7 @@ async def message_work(message: types.Message):
                     for i in range(3):
                         if buttons[i] == "":
                             incorr = choice(words_for_test)
-                            if incorr not in buttons:
-                                buttons[i] = translator.translate(incorr, src=src, dest=dest).text
-                            else:
+                            while incorr in buttons:
                                 incorr = choice(words_for_test)
                             buttons[i] = translator.translate(incorr, src=src, dest=dest).text
                     keyboard.add(*buttons)
