@@ -81,10 +81,7 @@ async def add_words(message: types.Message):
 
 @dp.message_handler(content_types=[types.ContentType.DOCUMENT])
 async def doc_handler(message: types.Message):
-    await message.document.download()
-
-
-    
+    await message.document.download() 
     file_info = await bot.get_file (message.document.file_id)
     file_path = file_info["file_path"]
     with open(file_path, "r") as file:
@@ -110,7 +107,6 @@ async def doc_handler(message: types.Message):
             os.remove(file_path)
         except Exception:
             pass
-
 
 
 @dp.message_handler(commands=["print_dict"])
