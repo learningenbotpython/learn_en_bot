@@ -159,7 +159,7 @@ async def choose_language(message: types.Message):
     keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
     buttons = ["Английский", "Русский"]
     keyboard.add(*buttons)
-    await message.answer(f"Выберете язык диктанта\nСейчас выбран {language}", reply_markup=keyboard)
+    await message.answer(f"Выберите язык диктанта\nСейчас выбран {language}", reply_markup=keyboard)
 
 
 @dp.message_handler(commands=["start_learning"])
