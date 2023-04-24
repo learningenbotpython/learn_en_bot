@@ -159,7 +159,7 @@ async def choose_language(message: types.Message):
     keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
     buttons = ["Английский", "Русский"]
     keyboard.add(*buttons)
-    await message.answer(f"Выберете зык диктанта\nСейчас выбран {language}", reply_markup=keyboard)
+    await message.answer(f"Выберете язык диктанта\nСейчас выбран {language}", reply_markup=keyboard)
 
 
 @dp.message_handler(commands=["start_learning"])
@@ -319,7 +319,7 @@ async def message_work(message: types.Message):
 
     elif writting_type == "choose_language":
         try:
-            if message.text == "Ангийский":
+            if message.text == "Английский":
                 language = "Английский"
                 await message.answer("Язык диктанта изменен на Английский")
                 writting_type = ""
